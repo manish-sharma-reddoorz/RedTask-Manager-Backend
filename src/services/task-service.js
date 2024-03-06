@@ -1,6 +1,8 @@
-import { TaskRepository } from "../repository";
+const {TaskRepository} = require('../repository/index');
+
 
 class TaskService {
+    
     constructor() {
         this.taskRepository = new TaskRepository();
     }

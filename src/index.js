@@ -6,8 +6,7 @@ const app = express();
 const connect = require('./config/database');
 const cors = require('cors');
 
-
-const prepareAndStartServer = () => {
+const prepareAndStartServer = async () => {
     
 
     app.use(cors());
@@ -20,6 +19,8 @@ const prepareAndStartServer = () => {
         console.log('Mongo db connected');
 
     })
+
+
 }
 
 prepareAndStartServer();
