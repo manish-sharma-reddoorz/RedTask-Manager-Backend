@@ -6,13 +6,15 @@ const create = async (req,res) => {
     try {
 
         // destructuring the request object
+        console.log("<-----------------Request------------------------>")
+        console.log(req.body);
         const task = {
             title : req.body.title,
             description : req.body.description,
             deadlineDate : req.body.deadlineDate,
             phase : req.body.phase,
-            assignedToId : req.body.assignedToId,
-            assignedFromId : req.body.assignedFromId,
+            assignedToMail : req.body.assignedToMail,
+            assignedFromMail : req.body.assignedFromMail,
         }
 
         const result = await taskService.create(task);
