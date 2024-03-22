@@ -3,7 +3,7 @@
   "info": {
     "title": "RedTask Manager API Documentation",
     "description": "This contains the documentation of apis of RedTask Manager Backend",
-    "host": "localhost:3000/3000",
+    "host": "localhost:3000/undefined",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
@@ -12,6 +12,51 @@
     "http"
   ],
   "paths": {
+    "/users/findByEmail/{email}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/validateUserByEmail/{email}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/tasks": {
       "post": {
         "description": "",
@@ -34,10 +79,10 @@
                 "phase": {
                   "example": "any"
                 },
-                "assignedToId": {
+                "assignedToMail": {
                   "example": "any"
                 },
-                "assignedFromId": {
+                "assignedFromMail": {
                   "example": "any"
                 }
               }
