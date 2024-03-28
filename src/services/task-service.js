@@ -87,20 +87,25 @@ class TaskService {
 
         let assignedToId;
         let assignedFromId;
-        try {
-            const assignedToUser = await this.getUserIdFromMail(data.assignedToMail);
-            assignedToId = assignedToUser._id;
-        } catch (error) {
-            console.log("Something went wrong task service while fetching assignedToUser");
-            throw error;
+
+        if(data.assignedToMail){
+            try {
+                const assignedToUser = await this.getUserIdFromMail(data.assignedToMail);
+                assignedToId = assignedToUser._id;
+            } catch (error) {
+                console.log("Something went wrong task service while fetching assignedToUser");
+                throw error;
+            }
         }
 
-        try {
-            const assignedFromUser = await this.getUserIdFromMail(data.assignedFromMail);
-            assignedFromId = assignedFromUser._id;
-        } catch (error) {
-            console.log("Something went wrong task service while fetching assignedFromUser");
-            throw error;
+        if(data.assignedFromMail) {
+            try {
+                const assignedFromUser = await this.getUserIdFromMail(data.assignedFromMail);
+                assignedFromId = assignedFromUser._id;
+            } catch (error) {
+                console.log("Something went wrong task service while fetching assignedFromUser");
+                throw error;
+            }
         }
 
         const newData = {
