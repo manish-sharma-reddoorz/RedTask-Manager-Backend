@@ -10,6 +10,10 @@ const taskSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        startingDate: {
+            type: Date,
+            required: true
+        },
         deadlineDate: {
             type: Date,
             required: true
