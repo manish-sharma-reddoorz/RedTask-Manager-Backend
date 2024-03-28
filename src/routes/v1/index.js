@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const TaskController = require('../../controllers/task-controller');
+const {TaskFormValidator} = require('../../middlewares/index');
 const User = require('../../models/user');
 
 //for users
@@ -81,10 +82,23 @@ router.get('/users/validateUserByEmail/:email', async function(req,res) {
 // for task
 router.post(
     '/tasks',
+    TaskFormValidator.addValidator,
     TaskController.create
 );
-router.delete('/tasks/:id', TaskController.destroy);
-router.patch('/tasks/:id', TaskController.update);
-router.get('/tasks/:id',TaskController.get);
+router.patch(
+    '/tasks/:id',
+    TaskFormValidator.updateValidator,
+    TaskController.update
+);
+router.delete(
+    '/tasks/:id', 
+    TaskFormValidator.idValidator,
+    TaskController.destroy
+);
+router.get(
+    '/tasks/:id',
+    TaskFormValidator.idValidator,
+    TaskController.get
+);
 
 module.exports = router;
