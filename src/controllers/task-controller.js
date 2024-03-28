@@ -11,6 +11,7 @@ const create = async (req,res) => {
         const task = {
             title : req.body.title,
             description : req.body.description,
+            startingDate: req.body.startingDate,
             deadlineDate : req.body.deadlineDate,
             phase : req.body.phase,
             assignedToMail : req.body.assignedToMail,
