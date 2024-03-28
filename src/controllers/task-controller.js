@@ -27,7 +27,7 @@ const create = async (req,res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(error.statusCode).json({
+        return res.status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({
             data : {},
             succcess : false,
             message : error.message,
@@ -47,7 +47,7 @@ const destroy = async (req,res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(error.statusCode).json({
+        return res.status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({
             data : {},
             succcess : false,
             message : error.message,
@@ -67,7 +67,7 @@ const update = async (req,res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(error.statusCode).json({
+        return res.status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({
             data : {},
             succcess : false,
             message : error.message,
@@ -87,7 +87,7 @@ const get = async (req,res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(error.statusCode).json({
+        return res.status(error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR).json({
             data : {},
             succcess : false,
             message : error.message,
