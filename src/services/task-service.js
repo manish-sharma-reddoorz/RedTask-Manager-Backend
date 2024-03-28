@@ -21,8 +21,6 @@ class TaskService {
         // adding code that must be removed after vani's implementation of get user by email
         let assignedToId;
         let assignedFromId;
-        console.log("<------------------data--------------------->")
-        console.log(data);
         try {
             const assignedToUser = await this.getUserIdFromMail(data.assignedToMail);
             console.log(assignedToUser);
@@ -43,6 +41,7 @@ class TaskService {
         const newData = {
             title : data.title,
             description : data.description,
+            startingDate: data.startingDate,
             deadlineDate : data.deadlineDate,
             phase : data.phase,
             assignedToId: assignedToId,
@@ -111,6 +110,7 @@ class TaskService {
         const newData = {
             title : data.title,
             description : data.description,
+            startingDate: data.startingDate,
             deadlineDate : data.deadlineDate,
             phase : data.phase,
             assignedToId: assignedToId,
